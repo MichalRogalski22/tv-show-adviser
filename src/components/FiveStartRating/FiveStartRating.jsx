@@ -6,7 +6,7 @@ const FiveStartRating = ({ rating }) => {
   const hasHalfStart = rating - parseInt(rating) >= 0.5;
   const emptyStartCount = 5 - startFillCount - (hasHalfStart ? 1 : 0);
 
-  for (let i = 1; i <= startFillCountgit branch -M main; i++) {
+  for (let i = 1; i <= startFillCount; i++) {
     starList.push(<StarFill key={"fill" + i} />);
   }
 
