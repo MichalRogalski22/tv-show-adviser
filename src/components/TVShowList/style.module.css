@@ -4,16 +4,13 @@
   font-size: 20px;
 }
 
-.list:hover {
-  overflow-x: overlay;
-}
 
 .list {
   display: flex;
   width: 100vw - 25px;
-  overflow-x: hidden;
+  overflow-x: overlay;
   overflow-y: hidden;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 
 .tv-show-item {
