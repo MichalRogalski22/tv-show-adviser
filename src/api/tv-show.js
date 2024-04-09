@@ -3,11 +3,21 @@ import { FAKE_POPULAR_TV_SHOWS, FAKE_RECOMMENDATIONS } from "./fakeData";
 import { BASE_URL, API_KEY_PARAM } from "../config";
 
 export class TVShowAPI {
+  userLang = navigator.language || navigator.userLanguage;
+
   static async fetchPopular() {
     // perform request
     // return response
-    const response = await axios.get(`${BASE_URL}/tv/popular${API_KEY_PARAM}`);
-    return response.data.results;
+    const response = await axios.get(
+      `${BASE_URL}/tv/popular${API_KEY_PARAM}&language=${
+        navigator.language || navigator.userLanguage
+      }`
+    );
+    console.log(response.data.results);
+    if(response.data.results[0].overview !== "") {
+      return response.data.results;
+    }
+    return this.fetchByTitle(response.data.results[0].name);
     // return FAKE_POPULAR_TV_SHOWS;
   }
 
@@ -15,7 +25,9 @@ export class TVShowAPI {
     // perform request
     // return response
     const response = await axios.get(
-      `${BASE_URL}/tv/${tvShowId}/recommendations${API_KEY_PARAM}`
+      `${BASE_URL}/tv/${tvShowId}/recommendations${API_KEY_PARAM}&language=${
+        navigator.language || navigator.userLanguage
+      }`
     );
     return response.data.results;
     // return FAKE_RECOMMENDATIONS
@@ -23,7 +35,9 @@ export class TVShowAPI {
 
   static async fetchByTitle(title) {
     const response = await axios.get(
-      `${BASE_URL}/search/tv${API_KEY_PARAM}&query=${title}`
+      `${BASE_URL}/search/tv${API_KEY_PARAM}&language=${
+        navigator.language || navigator.userLanguage
+      }&query=${title}`
     );
     return response.data.results;
   }
