@@ -6,6 +6,7 @@ import TVShowDetail from "./components/TVShowDetail/TVShowDetail";
 import Logo from "./components/Logo/Logo";
 import TVShowList from "./components/TVShowList/TVShowList";
 import SearchBar from "./components/SearchBar/SearchBar";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
@@ -91,6 +92,7 @@ function App() {
           />
         )}
       </div>
+      <SpeedInsights />
     </div>
   );
 }
