@@ -38,9 +38,7 @@ function App() {
   const fetchByTitle = async (title) => {
     try {
       const searchResp = await TVShowAPI.fetchByTitle(title);
-      console.log(searchResp);
       if (searchResp.length > 0) {
-        console.log(searchResp[0]);
         setCurrentTVShow(searchResp[0]);
       }
     } catch (error) {
