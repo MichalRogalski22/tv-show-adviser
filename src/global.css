@@ -8,7 +8,7 @@ body{
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb:horizontal {
+::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.61);
   border-radius: 10px;
 }
